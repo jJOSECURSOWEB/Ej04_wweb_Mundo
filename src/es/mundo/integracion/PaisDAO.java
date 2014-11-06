@@ -10,7 +10,7 @@ import es.mundo.modelo.Pais;
 public class PaisDAO {
 	private Connection cx;		
 	
-		public void conectar(){
+		private void conectar(){
 		try {
 			Class.forName("com.mysql.jdbc");
 			cx=DriverManager.getConnection("jdbc:mysql://localhost:3306/mundo","root","root");
@@ -23,7 +23,7 @@ public class PaisDAO {
 		}
 		}		
 
-		public void desconectar(){
+		private void desconectar(){
 			try {
 				cx.close();
 			} catch (SQLException e) {
