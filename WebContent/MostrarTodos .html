@@ -16,11 +16,13 @@
       <th>Nombre</th>
       <th>Habitantes</th> 
     </tr>
+  <% for(Pais pais: paises){ %>  
    <tr>
       <td><%=pais.getId() %></td>
       <td><%=pais.getNombre() %></td>
       <td><%=pais.getHabitantes() %></td>
   </tr>
+  <%}// del for %>
 </table>
 </body>
 </html>

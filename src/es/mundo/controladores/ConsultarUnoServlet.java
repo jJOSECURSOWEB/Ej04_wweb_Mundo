@@ -18,7 +18,6 @@ import es.mundo.modelo.Pais;
 @WebServlet("/ConsultarUno")
 public class ConsultarUnoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -32,20 +31,18 @@ public class ConsultarUnoServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int id=Integer.parseInt(request.getParameter("idPais"));
-		Negocio negocio=new Negocio();
-		Pais pais=negocio.consultarUno(id);
-		//meter el pais en el request uso metodo setAtribute
-		request.setAttribute("pais", pais);
-		//Redirigir hacia la pagina jsp que muestra los datos del pais
-		RequestDispatcher rd;
-		 rd=request.getRequestDispatcher("vistaindividual.jsp");
-	}
-
-	private void parseInt(String parameter) {
-		// TODO Auto-generated method stub
-		
-	}
+	    int id = Integer.parseInt(request.getParameter("idPais"));
+	   
+	    Negocio negocio = new Negocio();
+	    Pais pais =negocio.consultarUno(id);
+	    
+	    // meter el pais en el request.. uso el metodo setAttribute
+	    request.setAttribute("pais", pais);
+	    // Redirigir hacia la pagina jsp que muestra los datos del pais.
+	    RequestDispatcher rd;
+	    rd=request.getRequestDispatcher("vistaIndividual.jsp");
+	    rd.forward(request, response);
+		}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

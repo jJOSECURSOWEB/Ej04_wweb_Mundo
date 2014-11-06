@@ -29,14 +29,15 @@ public class DarAltaServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//1 recuperar datos URL
-		String nombre=request.getParameter("nombre");
-		//2 adaptarlossi es necesarioal tipode datosdelmodel(convertir de string a entero X ejem)
-		int habitantes=Integer.parseInt(request.getParameter("habitantes"));
-		//3 pasarle los datos al negocio
-		Negocio negocio=new Negocio();
-		int id=negocio.darAlta(nombre,habitantes);
-	}
+		// 1. recuperar los datos de la URL
+	    // 2. Adaptarlos si es necesario al tipo de datos del
+        //Modelo (convertir de String a entero x ejemplo)
+	       String nombre = request.getParameter("nombre");
+	       int habitantes = Integer.parseInt(request.getParameter("habitantes"));
+	  	  // 3. Pasarle los datos recuperados al Negocio ......
+	      Negocio negocio = new Negocio();
+	      int id= negocio.darAlta(nombre, habitantes);
+		}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
